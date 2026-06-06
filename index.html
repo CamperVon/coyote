@@ -138,7 +138,7 @@ section{ padding:clamp(64px,9vw,120px) 0; position:relative; }
    HERO  (key-art poster)
    =========================================================== */
 #hero{
-  min-height:100svh; padding:0 0 40px; display:flex; flex-direction:column;
+  min-height:100svh; padding:0 0 calc(16.7vw + 24px); display:flex; flex-direction:column;
   position:relative; overflow:hidden;
   background:linear-gradient(180deg, var(--blue-deep) 0%, #173242 60%, var(--dirt-deep) 100%);
   color:var(--cream);
@@ -164,7 +164,7 @@ section{ padding:clamp(64px,9vw,120px) 0; position:relative; }
   box-shadow:0 24px 60px -22px rgba(0,0,0,.6);
 }
 .hero-center{
-  position:relative; z-index:3; padding:16px 24px 8px;
+  position:relative; z-index:5; padding:16px 24px 8px;
   display:flex; align-items:center; justify-content:center; gap:34px;
   flex-wrap:wrap; max-width:1000px; margin:0 auto;
 }
@@ -529,8 +529,20 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
 .beat.stack{ display:block; }
 .beat.stack .beat-rail{ margin:0 auto 24px; }
 
-/* remove the bottom-margin that flow-root accent blocks would otherwise trap */
-#sizzle .lede{ margin-bottom:0; }
+/* remove the margins that flow-root accent blocks would otherwise trap */
+#sizzle .lede{ margin-top:0; margin-bottom:0; }
+/* per-breakpoint art that differs desktop vs mobile */
+@media(max-width:760px){ .only-desktop{ display:none !important; } }
+@media(min-width:761px){ .only-mobile{ display:none !important; } }
+/* mobile: LA River accent a touch larger */
+@media(max-width:760px){ .story-accent.accent-river{ width:min(205px,60%); } }
+/* desktop: villain cards staggered through the Corked Bat text */
+.beat.stack .beat-text{ display:flow-root; }
+.villain-float{ float:right; width:clamp(150px,17%,186px); margin:4px 0 14px 30px; transform:rotate(3deg); }
+.villain-float.left{ float:left; margin:4px 30px 14px 0; transform:rotate(-3deg); }
+/* mobile heading swap: "The story." */
+.mobile-period{ display:none; }
+@media(max-width:760px){ .desktop-tail{ display:none; } .mobile-period{ display:inline; } }
 /* player cards: consistent size, no white photo-frame */
 .feat.card{ max-width:190px; background:transparent; padding:0; border:none; }
 .beat.interleaved .feat.card{ width:min(190px,42%); }
@@ -593,12 +605,14 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
     <img class="hero-coins" src="art/hero/gold-coins.png" alt="" aria-hidden="true"
          loading="lazy" onerror="this.classList.add('missing');">
 
-    <div class="scrollcue">scroll &#9662;</div>
+    <div class="scrollcue only-mobile">scroll &#9662;</div>
   </header>
 
   <!-- ===================== STORY ===================== -->
   <section id="sizzle">
     <div class="wrap">
+
+      <div class="scrollcue only-desktop" style="margin:0 0 10px;">scroll &#9662;</div>
 
       <div class="reveal">
         <p class="eyebrow" style="color:var(--gold); font-size:16px; letter-spacing:.22em;">An all-ages adventure</p>
@@ -617,7 +631,7 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
       <div class="reveal" style="margin-top:30px;">
         <p class="lede" style="color:var(--cream); max-width:820px;">But then&hellip; they find the map.</p>
         <p class="lede" style="color:var(--cream); max-width:820px; margin-top:18px;">Tucked into the lining of a cracked old catcher's mitt, hand-drawn and fraying at the edges. Every kid who's ever played on this field grew up on the legend &mdash; a fortune buried back when Los Angeles was a dusty pueblo, hidden somewhere in the Elysian hills. Every Coyote who went looking came back with nothing.</p>
-        <p class="lede" style="color:var(--gold); max-width:820px; margin-top:14px; font-weight:800;">Until now.</p>
+        <p class="lede" style="color:var(--gold); max-width:820px; margin-top:14px;">Until now.</p>
       </div>
 
       <div class="reveal has-accent" style="margin-top:30px;">
@@ -687,7 +701,7 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
     <div class="wrap">
       <div class="reveal" style="margin-bottom:10px;">
         <p class="eyebrow" style="font-size:16px; letter-spacing:.22em;">Detailed Playbook</p>
-        <h2 class="section">The <em>story</em>, inning by inning.</h2>
+        <h2 class="section">The <em>story</em><span class="mobile-period">.</span><span class="desktop-tail">, inning by inning.</span></h2>
       </div>
 
       <div class="reveal beat interleaved">
@@ -696,7 +710,6 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
         <p class="body">The Coyotes are getting shellacked by their arch-enemies. <em>Again.</em> Down by nine runs, mercy rule looming, half the parents already drifting toward the parking lot. This is their last season on this field, and the mood is raw to put it mildly. Their crooked little diamond &mdash; patchy grass, sagging chain-link, a clubhouse that hasn't been properly cleaned since the eighties &mdash; is due for the bulldozers when summer ends.</p>
         <p class="body"><strong>Eli</strong>, the coach's kid, hangs back after the game. Baseball means more to him than he lets on, but he carries a quiet guilt for never living up to his father, <strong>Sal</strong>, who came one knee injury short of the pros and clearly had been hoping his son would carry the torch.</p>
         <p class="body">Now they're clearing the place out together, and it's bitter-not-sweet &mdash; fifty years of bent bats, gap-toothed team photos, a cobwebbed box of baseballs somebody once labeled <em>LUCKY</em> that was anything but. And at the bottom of that box&hellip; a beat-up catcher's mitt with something sewn into the lining.</p>
-        <img class="feat wide full" style="max-width:300px;" src="art/lore/lore-lizard-1934.png" alt="1934 LA Times — Lizard People front page" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
       </div>
       <div class="reveal beat interleaved">
         <h3><img class="hicon" src="art/icons/icon-reading-signs.png?v=2" alt="" onerror="this.classList.add('missing')">Reading the Signs</h3>
@@ -710,6 +723,7 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
         <h3><img class="hicon" src="art/icons/icon-deep-in-count.png?v=2" alt="" onerror="this.classList.add('missing')">Deep in the Count</h3>
         <img class="feat card" src="art/cards/card-sadie.png" alt="Sadie" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
         <p class="body">Under the old Barlow, they drop into the dark &mdash; storm drains and brick channels nobody's set foot in for a hundred years. Theo, who's prepared his whole life for something like this, has the place mapped on his phone before they're ten feet down. Nico keeps a running tally of everything down here that can kill them, Lizard People at the top. <strong>Sadie</strong>, the center fielder whose parents are splitting up and who's carried that anger all summer, wants to call the whole thing off &mdash; this is childish insanity, <em>isn't it time to grow up already?</em></p>
+        <img class="feat only-mobile" style="width:min(58%,260px);" src="art/lore/lore-lizard-1934.png" alt="1934 LA Times — Lizard People front page" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
         <p class="body">They bicker, they get lost, they completely melt down. Just like on the field. These coyotes are <em>not</em> a pack. But Eli leads on, and soon enough they crack a seismic cipher in the walls, opening a chamber that hasn't seen light in 150 years. Are they actually onto something&hellip;?</p>
       </div>
       <div class="reveal beat interleaved">
@@ -729,11 +743,14 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
       <div class="reveal beat stack">
         <div class="beat-text">
           <h3><img class="hicon" src="art/icons/icon-corked-bat.png?v=2" alt="" onerror="this.classList.add('missing')">Corked Bat</h3>
+          <img class="feat card villain-float only-desktop" src="art/cards/card-ascher.jpg" alt="Viktor Ascher" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
           <p class="body">But our diamond dogs aren't the only ones chasing underground gold. A ruthless treasure hunter by the name of <strong>Viktor Ascher</strong> has been chasing this mythological bounty for years on end &mdash; a slick rascal who's spent half his life bouncing between get-rich-quick schemes, half-baked expeditions, and charming his way out of dark alleys.</p>
+          <img class="feat card villain-float left only-desktop" src="art/cards/card-randy.png" alt="Randy" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
           <p class="body">And there's no way in hell a pack of twelve-year-olds beats him to the haul of a lifetime. One whiff of Theo's earlier online sleuthing and Ascher was locked onto them right-quick, shadow-tailing them to the sanitarium, and now eying their every move. His muscle is a pair of quintessential Angelenos &mdash; <strong>Randy</strong>, a car valet who's convinced he's a stunt driver, and <strong>Marlon</strong>, a barista with a headshot who method-acts his way through every minute of his life. They're ridiculous, overly caffeinated, and far more dangerous than they look.</p>
+          <img class="feat card villain-float only-desktop" src="art/cards/card-marlon.png" alt="Marlon" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
           <p class="body">Soon enough, the Coyotes are back on the hunt &mdash; but this time Ascher and his cronies are breathing down their necks, ready to break necks if that's what it takes to claim the booty for themselves.</p>
         </div>
-        <div class="beat-rail fan">
+        <div class="beat-rail fan only-mobile">
           <img class="feat card" src="art/cards/card-randy.png" alt="Randy" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
           <img class="feat card" src="art/cards/card-ascher.jpg" alt="Viktor Ascher" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
           <img class="feat card" src="art/cards/card-marlon.png" alt="Marlon" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
@@ -760,7 +777,7 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
       </div>
       <div class="reveal beat interleaved">
         <h3><img class="hicon" src="art/icons/icon-last-strike.png?v=2" alt="" onerror="this.classList.add('missing')">Last Strike</h3>
-        <img class="feat" style="float:right; width:clamp(150px,22%,210px); margin:6px 0 18px 32px;" src="art/objects/obj-medallion.png" alt="The medallion" loading="lazy" onerror="this.style.display='none'">
+        <img class="feat" style="float:right; width:clamp(150px,22%,210px); margin:6px 0 18px 32px; transform:rotate(6deg);" src="art/objects/obj-medallion.png" alt="The medallion" loading="lazy" onerror="this.style.display='none'">
         <p class="body">The hunt had been a place to emotionally <em>hide</em> &mdash; from Danny's packed boxes, the fights through Sadie's bedroom wall, Eli's fractured relationship with Sal, their clubhouse that's about to be demolished&hellip;</p>
         <p class="body">But it all returns to the surface when Ascher anonymously leaks footage of the kids breaking into Dodger Stadium, causing mayhem, vandalizing equipment. Cops pay a visit, parents are livid, the league threatens suspension, Sal is forced to resign. Danny's family opts to leave town sooner, Sadie becomes one more thing for her parents to fight about, and Theo's mom yanks him off the team. They've lost the map, the medallion, and now each other.</p>
       </div>
@@ -768,6 +785,7 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
         <h3><img class="hicon" src="art/icons/icon-extra-innings.png?v=2" alt="" onerror="this.classList.add('missing')">Extra Innings</h3>
         <img class="feat wide brown-frame" src="art/locations/loc-tunnels.png" alt="The tunnels" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
         <p class="body">But Eli isn't deterred and Theo, being Theo, made backups of his backup. Armed with a newfound clue from the stadium, they crack the final code and secretly call for a pack meeting&hellip; where they announce that they know <em>exactly</em> where the treasure is. Well, <em>almost</em> exactly.</p>
+        <img class="feat only-desktop" style="float:left; width:clamp(150px,18%,200px); margin:6px 30px 14px 0;" src="art/lore/lore-lizard-1934.png" alt="1934 LA Times — Lizard People front page" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
         <p class="body">The last piece of the puzzle requires them to line up two markers in the hills, an old surveyor's trick. And the geographical touchstones only align from one precise location at 4:44 PM &mdash; representing the 44 original settlers who founded Los Angeles in 1781. And the location? The dead center of Dodger Field. Where a kid has no business standing, <em>ever</em>. Except for one day a year. During the city Little League Championship. If he or she happens to be playing.</p>
         <p class="body">So a team that's barely ever won anything has to lock in its last playoff game to get there. To make matters worse, the <em>Breakers</em>, their rich westside arch-rivals, are poaching Wyatt and Weston, the star twins, with promises of high school scholarships and real college hopes. Their parents aren't exactly saying <em>no</em>. With the twins, the Coyotes were a long shot. Without them, they're long <em>dead</em>.</p>
       </div>
