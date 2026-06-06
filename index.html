@@ -500,7 +500,7 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
 .brown-frame{ background:var(--dirt-deep); padding:10px; border-radius:4px; box-shadow:0 16px 30px -14px rgba(0,0,0,.5); }
 @media(min-width:761px){
   .story-accent.accent-map{ width:25%; max-width:300px; }
-  .story-accent.accent-river{ width:clamp(180px,17vw,232px); }
+  .story-accent.accent-river{ width:clamp(240px,26vw,330px); margin:4px 0 12px 28px; }
 }
 @media(max-width:760px){
   .story-accent, .story-accent.left{
@@ -539,7 +539,7 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
 @media(max-width:760px){ .story-accent.accent-map{ width:min(230px,66%); } }
 /* desktop: villain cards staggered through the Corked Bat text */
 .beat.stack .beat-text{ display:flow-root; }
-.villain-float{ float:right; width:clamp(150px,17%,186px); margin:4px 0 14px 30px; transform:rotate(3deg); }
+.villain-float{ float:right; width:clamp(140px,15%,168px); margin:4px 0 14px 30px; transform:rotate(3deg); }
 .villain-float.left{ float:left; margin:4px 30px 14px 0; transform:rotate(-3deg); }
 /* mobile heading swap: "The story." */
 .mobile-period{ display:none; }
@@ -658,15 +658,15 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
         <p class="lede" style="color:var(--cream); max-width:820px; margin-top:18px;">What follows is a scrappy, <em>Home Alone</em>-style war &mdash; pitching machines turned into cannons, batting nets dropped like jungle traps, and heart-pounding getaways on bikes and skateboards down the concrete channels of the LA River.</p>
       </div>
 
-      <div class="reveal has-accent" style="margin-top:30px;">
+      <div class="reveal has-accent" style="margin-top:30px; max-width:880px;">
         <img class="story-accent accent-river" src="art/locations/loc-la-river.png" alt="" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
-        <p class="lede" style="color:var(--cream); max-width:820px;">
+        <p class="lede" style="color:var(--cream);">
           Amid the thrills and scares, something <em>transforms</em>. Nine kids
           who had given up on each other start believing in the impossible. They
           start working together. Trusting each other. <em>Believing</em>. And
           they carry it all back onto the field.
         </p>
-        <p class="lede" style="color:var(--cream); max-width:820px; margin-top:18px;">Somehow the worst team in the league starts <em>winning</em> &mdash; squeakers at first, then blowouts, and playoff games nobody thought they had any business even playing. Eli swears it's because of the beat-up charm they found in the tunnels. But his dad Sal, the Coyotes' coach, senses it's something else entirely. For the first time, they actually look like a real team.</p>
+        <p class="lede" style="color:var(--cream); margin-top:18px;">Somehow the worst team in the league starts <em>winning</em> &mdash; squeakers at first, then blowouts, and playoff games nobody thought they had any business even playing. Eli swears it's because of the beat-up charm they found in the tunnels. But his dad Sal, the Coyotes' coach, senses it's something else entirely. For the first time, they actually look like a real team.</p>
       </div>
 
       <div class="reveal" style="margin-top:30px;">
@@ -744,16 +744,16 @@ footer .fine{ font-family:"Special Elite",monospace; font-size:11px; letter-spac
       <div class="reveal beat stack">
         <div class="beat-text">
           <h3><img class="hicon" src="art/icons/icon-corked-bat.png?v=2" alt="" onerror="this.classList.add('missing')">Corked Bat</h3>
-          <img class="feat card villain-float only-desktop" src="art/cards/card-ascher.jpg" alt="Viktor Ascher" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
+          <img class="feat card villain-float only-desktop" src="art/cards/card-ascher.jpg?v=2" alt="Viktor Ascher" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
           <p class="body">But our diamond dogs aren't the only ones chasing underground gold. A ruthless treasure hunter by the name of <strong>Viktor Ascher</strong> has been chasing this mythological bounty for years on end &mdash; a slick rascal who's spent half his life bouncing between get-rich-quick schemes, half-baked expeditions, and charming his way out of dark alleys.</p>
           <img class="feat card villain-float left only-desktop" src="art/cards/card-randy.png" alt="Randy" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
           <p class="body">And there's no way in hell a pack of twelve-year-olds beats him to the haul of a lifetime. One whiff of Theo's earlier online sleuthing and Ascher was locked onto them right-quick, shadow-tailing them to the sanitarium, and now eying their every move. His muscle is a pair of quintessential Angelenos &mdash; <strong>Randy</strong>, a car valet who's convinced he's a stunt driver, and <strong>Marlon</strong>, a barista with a headshot who method-acts his way through every minute of his life. They're ridiculous, overly caffeinated, and far more dangerous than they look.</p>
-          <img class="feat card villain-float only-desktop" src="art/cards/card-marlon.jpg?v=2" alt="Marlon" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
+          <img class="feat card villain-float left only-desktop" style="margin:-46px 30px 14px 0; position:relative; z-index:2;" src="art/cards/card-marlon.jpg?v=2" alt="Marlon" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
           <p class="body">Soon enough, the Coyotes are back on the hunt &mdash; but this time Ascher and his cronies are breathing down their necks, ready to break necks if that's what it takes to claim the booty for themselves.</p>
         </div>
         <div class="beat-rail fan only-mobile">
           <img class="feat card" src="art/cards/card-randy.png" alt="Randy" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
-          <img class="feat card" src="art/cards/card-ascher.jpg" alt="Viktor Ascher" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
+          <img class="feat card" src="art/cards/card-ascher.jpg?v=2" alt="Viktor Ascher" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
           <img class="feat card" src="art/cards/card-marlon.jpg?v=2" alt="Marlon" loading="lazy" onerror="this.classList.add('missing');this.textContent=this.alt;this.alt='';">
         </div>
       </div>
